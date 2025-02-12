@@ -15,6 +15,16 @@
           </a>
         </li>
         <li>
+          <a href="https://portfolio-fund-data.vercel.app/" target="_blank">
+            <span class="underline">Fund Portfolio</span>, a work in progress to display funds from TwelveData
+          </a>
+        </li>
+        <li>
+          <a href="https://pet-food-calculator.vercel.app/" target="_blank">
+            <span class="underline">Pet food calculator</span>, calculate the cost of food per oz or g
+          </a>
+        </li>
+        <li>
           <a href="https://portfolio-dashboard-jae.vercel.app/" target="_blank">
             <span class="underline">MakenBank</span>, a sample dashboard
           </a>
