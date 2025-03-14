@@ -3,7 +3,9 @@
     <div class="flex flex-col 2xl:w-2/3 w-full mx-auto">
       <h1 class="text-lime-500 sr-only">Skills</h1>
       <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7">
+        <template v-if="isLoading">Loading...</template>
         <div
+          v-else
           v-for="skillType in skillTypes"
           :key="`skill-type-${skillType.id}`"
           class="
@@ -58,14 +60,17 @@ export interface SkillType {
   description: string
 }
 
+const isLoading: Ref<boolean> = ref(false)
 const skills: Ref<Skill[]> = ref([])
 const skillTypes: Ref<SkillType[]> = ref([])
 
 onMounted(async () => {
+  isLoading.value = true
   const skillData = await fetch(`${import.meta.env.VITE_API_BASE_URL}/skills/skill`)
   skills.value = await skillData.json()
   const skillTypeData = await fetch(`${import.meta.env.VITE_API_BASE_URL}/skills/skilltype`)
   skillTypes.value = await skillTypeData.json()
+  isLoading.value = false
 })
 </script>
 
