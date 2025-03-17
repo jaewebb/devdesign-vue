@@ -15,6 +15,11 @@
           </a>
         </li>
         <li>
+            <a href="https://hockey-highlights.vercel.app/" target="_blank">
+              <span className="underline">Hockey Highlights</span>, search for a country, pick a league, see some hockey fun
+            </a>
+          </li>
+        <li>
           <a href="https://portfolio-fund-data.vercel.app/" target="_blank">
             <span class="underline">Fund Portfolio</span>, a work in progress to display funds from TwelveData
           </a>
