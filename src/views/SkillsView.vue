@@ -2,10 +2,14 @@
   <Transition name="slide" appear>
     <div class="flex flex-col 2xl:w-2/3 w-full mx-auto">
       <h1 class="text-lime-500 sr-only">Skills</h1>
-      <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7">
-        <template v-if="isLoading">Loading...</template>
+      <template v-if="isLoading">
+        <i class="fa-solid fa-circle-notch icon-large text-center text-lime-500 animate-spin"></i>
+      </template>
+      <div
+        v-else
+        class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7"
+      >
         <div
-          v-else
           v-for="skillType in skillTypes"
           :key="`skill-type-${skillType.id}`"
           class="
@@ -75,6 +79,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.icon-large {
+  font-size: 5rem;
+}
+
 li {
   margin-bottom: 0.5rem;
 }
