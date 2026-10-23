@@ -10,7 +10,7 @@
     >
       <a href="/">
         <AppImage
-          :src="logo"
+          :src="logoUrl"
           style="height: 60px; width: 60px;"
           alt="site logo"
         />
@@ -40,10 +40,11 @@
 </template>
 
 <script setup lang="ts">
+import { ref, type Ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import AppImage from '@/components/AppImage.vue'
 
-import logo from '@/assets/logo.png'
+const logoUrl: Ref<string> = ref(`${import.meta.env.VITE_BLOB_STORE_URL}/logo.png`)
 </script>
 
 <style scoped>
