@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-3xl: 120rem;
+  --breakpoint-2k: 160rem;
+  --breakpoint-4k: 240rem;
+}

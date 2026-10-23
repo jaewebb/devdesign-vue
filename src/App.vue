@@ -17,8 +17,10 @@ onMounted(() => {
     <Transition name="slide" appear>
       <AppHeader />
     </Transition>
-    <main>
-      <RouterView v-if="loaded" />
+    <main class="flex justify-center">
+      <div class="flex flex-col mx-auto 3k:w-1/2 md:w-2/3 w-full">
+        <RouterView v-if="loaded" />
+      </div>
     </main>
     <Transition name="slide" appear>
       <AppFooter />

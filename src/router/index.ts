@@ -10,11 +10,6 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('@/views/AboutView.vue'),
-    },
-    {
       path: '/skills',
       name: 'skills',
       component: () => import('@/views/SkillsView.vue'),
@@ -23,11 +18,6 @@ const router = createRouter({
       path: '/portfolio',
       name: 'portfolio',
       component: () => import('@/views/PortfolioView.vue'),
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('@/views/ContactView.vue'),
     },
     {
       path: '/:pathMatch(.*)*',

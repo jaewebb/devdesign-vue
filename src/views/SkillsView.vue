@@ -1,13 +1,13 @@
 <template>
   <Transition name="slide" appear>
-    <div class="flex flex-col 2xl:w-2/3 w-full mx-auto">
+    <div>
       <h1 class="text-lime-500 sr-only">Skills</h1>
       <template v-if="isLoading">
         <i class="fa-solid fa-circle-notch icon-large text-center text-lime-500 animate-spin"></i>
       </template>
       <div
         v-else
-        class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-7"
+        class="grid 3xl:grid-cols-3 grid-cols-1 gap-7"
       >
         <div
           v-for="skillType in skillTypes"

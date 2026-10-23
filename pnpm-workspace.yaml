@@ -1,0 +1,2 @@
+overrides:
+  '@webbdeveloper/webb-css': link:../../../Library/pnpm/global/5/node_modules/@webbdeveloper/webb-css

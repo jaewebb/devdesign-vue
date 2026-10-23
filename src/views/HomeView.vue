@@ -1,51 +1,59 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <Transition name="slide" appear>
-    <div
-      class="
-        flex
-        md:flex-row flex-col
-        items-center
-        justify-between
-        2xl:w-1/2 w-full
-        mx-auto"
-    >
-      <div class="md:block hidden mr-2">
-        <h2 class="text-lime-500 neon-green">Jae Webb</h2>
-        <h3 class="text-sky-500 neon-blue">Senior Web Application Developer</h3>
-      </div>
-      <div class="md:w-2/4 w-full">
-        <h1 class="text-lime-500">Mobile Friendly Web Sites and Apps</h1>
-        <div>
-          <p>
-            When we plan to go somewhere new, whether that be a beach,
-            a board game cafe, or even a new city,
-            what's the first thing that we do?
-            We look it up online!
-          </p>
-
-          <p>
-            These days,
-            it's vital to have a solid source of information on the web
-            in order to attract new customers and keep current ones updated.
-            When potential customers are given a choice
-            between two similar business options,
-            having a strong online presence can tip the scales in your favour.
-          </p>
-
-          <p>
-            This is where I come in!
-            I will work with you to create a custom informational website,
-            or web app, that can attract potential customers and communicate
-            the unique benefits that your company has to offer.
-          </p>
+    <div class="2k:w-1/2 2xl:w-2/3 w-full mx-auto gap-4">
+      <div class="flex sm:flex-row flex-col sm:items-start items-center sm:text-left text-center">
+        <img :src="avatarUrl" :alt="bio?.avatar?.alt" height="100px" width="100px" />
+        <div class="flex flex-col justify-center sm:px-6 px-0 sm:pt-0 pt-4">
+          <h1 class="text-lime-500 neon-green">{{ bio.firstName }} {{ bio.lastName }}</h1>
+          <h2 class="text-sky-500 neon-blue">{{ bio.title }}</h2>
         </div>
+      </div>
+      <div class="flex flex-col gap-4 my-4">
+        <p
+          v-for="(paragraph, i) in bio.description"
+          :key="`paragraph-${i}`"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
+      <div>
+        <h6>My career goals are:</h6>
+        <ul>
+          <li v-for="(goal, i) in bio.goals" :key="`goal-${i}`">
+            {{ goal }}
+          </li>
+        </ul>
       </div>
     </div>
   </Transition>
 </template>
+
+<script setup lang="ts">
+import { onMounted, ref, type Ref } from 'vue'
+
+export interface Bio {
+  avatar: {
+    alt: string;
+    url: string;
+  }
+  description: string[];
+  firstName: string;
+  goals: string[];
+  lastName: string;
+  title: string;
+}
+
+const isLoading: Ref<boolean> = ref(false)
+const bio: Ref<Bio> = ref({} as Bio)
+const avatarUrl: Ref<string> = ref('')
+
+onMounted(async () => {
+  isLoading.value = true
+  const bioData = await fetch(`${import.meta.env.VITE_API_BASE_URL}/bio/bio`)
+  bio.value = await bioData.json()
+  avatarUrl.value = `${import.meta.env.VITE_BLOB_STORE_URL}/${bio.value.avatar.url}`
+  isLoading.value = false
+})
+</script>
 
 <style></style>
