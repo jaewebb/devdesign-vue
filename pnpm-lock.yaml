@@ -170,8 +170,8 @@ importers:
         specifier: ^4.3.3
         version: 4.3.3(vite@8.3.5(@types/node@26.6.5)(jiti@2.7.0))
       '@webbdeveloper/webb-css':
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: ^1.0.6
+        version: 1.0.6
       pinia:
         specifier: ^4.1.0
         version: 4.1.0(@vue/devtools-api@8.2.1)(typescript@6.0.3)(vue@3.5.44(typescript@6.0.3))
@@ -795,8 +795,8 @@ packages:
       vue:
         optional: true
 
-  '@webbdeveloper/webb-css@1.0.5':
-    resolution: {integrity: sha512-vqz2rX+Y1+n7dOncSzc5IjbFnbz5bUn6Nm3UC+BQFsuRiYNPQ0DKR2jmeNbHqEakYDikxR2DNAP1TUQdcv8LTQ==}
+  '@webbdeveloper/webb-css@1.0.6':
+    resolution: {integrity: sha512-CAz0zHt3IEeXgBF6e16BM5arKbhdboQtSlvWnvQ8Hvuypybp9CaGRiOSEV/N20Zyrbt5T3r+/9AN/wMTi4+WrQ==}
 
   abbrev@5.0.0:
     resolution: {integrity: sha512-/XrFJgzQQQHpti1raDJC6m4ws6aNktmjBlhk8Fdlk7LwCEuDoieEJJY9OFHjfiFJFFRM2tK+Ky/IsfbbmlMu1w==}
@@ -2269,7 +2269,7 @@ snapshots:
       typescript: 6.0.3
       vue: 3.5.44(typescript@6.0.3)
 
-  '@webbdeveloper/webb-css@1.0.5': {}
+  '@webbdeveloper/webb-css@1.0.6': {}
 
   abbrev@5.0.0: {}
 
