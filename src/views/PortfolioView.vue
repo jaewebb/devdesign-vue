@@ -1,11 +1,20 @@
 <template>
-  <Transition name="slide" appear>
-    <div class="3k:w-1/2 xl:w-2/3 w-full mx-auto">
+  <template v-if="isLoading">
+    <Loading />
+  </template>
+  <template v-else-if="!isLoading && !portfolioItems.length">
+    Error fetching data
+  </template>
+  <Transition v-else name="slide" appear>
+    <div v-if="portfolioItems.length" class="3k:w-1/2 xl:w-2/3 w-full mx-auto">
       <h1 class="text-lime-500">Portfolio</h1>
-      <p>Most of what I've worked on has been used internally or is client-only, so I started a portfolio page with proof of concepts!</p>
+      <p>
+        Most of what I've worked on has been used internally or is client-only,
+        so I started a portfolio page with proof of concepts!
+      </p>
       <ul>
         <li v-for="(item) in portfolioItems" :key="`porfolioItem-${item.id}`">
-          <a :href="item.link" target="_blank">
+          <a class="underline" :href="item.link" target="_blank">
             {{ item.name }}
           </a>
           {{ item.description }}
@@ -17,6 +26,8 @@
 
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue'
+
+import Loading from '@/components/AppLoading.vue'
 
 export interface PortfolioItem {
   id: number;

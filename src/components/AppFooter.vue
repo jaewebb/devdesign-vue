@@ -3,14 +3,14 @@
     <div class="flex flex-col text-center gap-4 pt-8">
       <ul class="flex justify-center gap-4">
         <li>
+          <i className="fa-regular fa-envelope"></i>{{' '}}
           <a href="mailto:jaewebbdevdesign@gmail.com">
-            <i className="fa-regular fa-envelope"></i>
             jaewebbdevdesign@gmail.com
           </a>
         </li>
         <li>
+          <i className="fa-brands fa-linkedin"></i>{{' '}}
           <a href="https://www.linkedin.com/in/jae-webb/">
-            <i className="fa-brands fa-linkedin"></i>
             LinkedIn
           </a>
         </li>

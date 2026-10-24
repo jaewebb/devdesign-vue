@@ -1,14 +1,14 @@
 <template>
-  <Transition name="slide" appear>
-    <div>
+  <template v-if="isLoading">
+    <Loading />
+  </template>
+  <template v-else-if="!isLoading && (!skillTypes.length || !skills.length)">
+    Error fetching data
+  </template>
+  <Transition v-else name="slide" appear>
+    <div v-if="skillTypes && skills">
       <h1 class="text-lime-500 sr-only">Skills</h1>
-      <template v-if="isLoading">
-        <i class="fa-solid fa-circle-notch icon-large text-center text-lime-500 animate-spin"></i>
-      </template>
-      <div
-        v-else
-        class="grid 3xl:grid-cols-3 grid-cols-1 gap-7"
-      >
+      <div class="grid 3xl:grid-cols-3 grid-cols-1 gap-7">
         <div
           v-for="skillType in skillTypes"
           :key="`skill-type-${skillType.id}`"
@@ -51,6 +51,8 @@
 <script setup lang="ts">
 import { onMounted, ref, type Ref } from 'vue'
 
+import Loading from '@/components/AppLoading.vue'
+
 export interface Skill {
   id: number
   name: string
@@ -77,13 +79,3 @@ onMounted(async () => {
   isLoading.value = false
 })
 </script>
-
-<style scoped>
-.icon-large {
-  font-size: 5rem;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-</style>

@@ -10,6 +10,7 @@
     >
       <a href="/">
         <AppImage
+          v-if="logoUrl"
           :src="logoUrl"
           style="height: 60px; width: 60px;"
           alt="site logo"
